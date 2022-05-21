@@ -1,0 +1,116 @@
+body {
+	display: flex;
+	flex-direction: column;
+	background-color: #74c365;
+	margin: 10px;
+	align-items: stretch;
+	justify-content: center;
+}
+
+h1 {
+	font-family: Arial;
+	color: white;
+	font-size: 52px;
+	padding: 10px;
+	text-align: center;
+	margin-top: 0px;
+}
+
+h2 {
+	font-size: 26px;
+	text-align: center;
+	color: white;
+}
+
+button {
+	background-color: green;
+	color: white;
+	margin: 10px;
+	border: 10px;
+	padding: 20px;
+	border-radius: 10px;
+	font-size: 24px;
+	font-weight: bold;
+}
+
+
+#pontuacao {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	font-size: 24px;
+	flex-wrap: wrap;
+/* 	margin: 50px; */
+}
+
+#pergunta {
+	margin: 30px;
+	display: flex;
+/* 	flex-direction: row; */
+	justify-content: center;
+/* 	gap: 10px; */
+	flex-wrap: wrap;
+}
+
+#pontuacao-jogador {
+	font-size: 36px;
+	text-align: center;
+	color: green;
+}
+
+#resposta {
+	font-size: 24px;
+	text-align: center;
+}
+
+#reiniciar {
+	display: none;
+/* 	border: 5px solid red; */
+	flex-direction: column;
+	justify-content: center;
+/* 	max-width: 50%; */
+	align-items: center;
+	color: green;
+}
+
+.verde {
+	color: green;
+	font-size: 26px;
+	text-align: center;
+}
+
+
+#pontuacao-maquina {
+	color: red;
+	font-size: 36px;
+	text-align: center;
+}
+
+#pontuacao-jogador,
+#pontuacao-maquina {
+	font-weight: bold;
+}
+
+img {
+	padding: 10px;
+	border-radius: 60%;
+	background-color: white;
+}
+#tesoura,
+#papel,
+#pedra {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 10px;
+}
+
+/*@media screen and (max-width: 500px){
+	#pergunta {
+		flex-direction: column;
+/* 		margin: 0px; */
+		gap: 0px;
+		max-width: 200px;
+	}
+}*/

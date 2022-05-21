@@ -1,73 +1,95 @@
 function computerPlay () {
-
-		play = Math.floor(Math.random() * 3);
-		if (play == 0) {
+	switch (Math.floor(Math.random() * 3)){
+		case 0:
 			return 'pedra';
-		}
-		else if (play == 1) {
+			break;
+		case 1:
 			return 'papel';
-		}
-		else {return 'tesoura'};
-
-
-	}
-
-function playRound (playerSelection, computerSelection) {
-		if (playerSelection == computerSelection) {
-			return 'Empate';
-		}
-
-		if (playerSelection === 'pedra') {
-			if (computerSelection === 'tesoura') {
-				return 'Você ganhou!';
-			}
-			else {return 'Você perdeu!'};
-		}
-
-		if (playerSelection === 'papel') {
-			if (computerSelection === 'pedra') {
-				return 'Você ganhou!';
-			}
-			else {return 'Você perdeu!'};
-		}
-
-		if (playerSelection === 'tesoura') {
-			if (computerSelection === 'pedra') {
-				return 'Você perdeu!';
-			}
-			else {return 'Você ganhou!'};
-		}
-	}
-
-
-
-
-
-
-
-let vitoria = 0, derrota = 0, empate = 0;
-
-for (i = 0; i < 5; i++) {
-
-	let playerSelection = prompt('Escolha entre pedra, papel e tesoura, e digite abaixo');
-
-
-	const computerSelection = computerPlay();
-	console.log(`A máquina escolheu ${computerSelection}`);
-	console.log(playRound(playerSelection, computerSelection));
-
-	console.log(i);
-
-
-	if (playRound(playerSelection, computerSelection)=='Você ganhou!') {
-		vitoria++;
-	} else if (playRound(playerSelection, computerSelection)=='Você perdeu!') {
-		derrota++;
-
-	} else {
-		empate++;
+			break;
+		case 2:
+			return 'tesoura';
+			break;
+		default:
+			return console.log('Erro na função computerPlay');
 	}
 }
 
+function botaoReiniciar (resposta = ' ') {
+	pergunta.replaceWith(reiniciar);
+	reiniciar.style.display = 'flex';
+	document.getElementById('escolha').style.display = 'none';
+	ganhar.innerHTML = resposta;
+}
 
-console.log(`De 5 partidas, você ganhou ${vitoria}, perdeu ${ derrota}, e empatou ${empate}.`);
+function playRound (playerSelection, computerSelection) {
+	if (playerSelection == computerSelection) {
+		return 'Empate';
+	}
+	if (playerSelection === 'pedra') {
+		if (computerSelection === 'tesoura') {
+			return 'Você ganhou!';
+	}
+		else {return 'Você perdeu!'};
+	}
+	if (playerSelection === 'papel') {
+		if (computerSelection === 'pedra') {
+			return 'Você ganhou!';
+	}
+		else {return 'Você perdeu!'};
+	}
+	if (playerSelection === 'tesoura') {
+		if (computerSelection === 'pedra') {
+			return 'Você perdeu!';
+	}
+		else {return 'Você ganhou!'};
+	}
+
+}
+
+function game() {
+
+	const computerSelection = computerPlay();
+
+	jogador.innerHTML = `Você escolheu ${playerSelection}, a máquina escolheu ${computerSelection}.`;
+
+	if (playRound(playerSelection, computerSelection) == 'Você ganhou!') {
+		vitoria++;
+	} else	if (playRound(playerSelection, computerSelection) == 'Você perdeu!') {
+		derrota++;
+	} else if (playRound(playerSelection, computerSelection) == 'Empate') {
+		empate++;
+	};
+
+	pontuacaoJogador.innerHTML = vitoria;
+	console.log(`Empate(s): ${empate}`);
+	pontuacaoMaquina.innerHTML = derrota;
+
+	if (vitoria == 5) {
+		botaoReiniciar('Parabéns! Você ganhou 5 vezes!');
+	} else if (derrota == 5) {
+		botaoReiniciar('Que pena! Você perdeu 5 vezes!');
+	}
+}
+
+let reiniciar = document.getElementById('reiniciar');
+// let ganhar = document.getElementById('ganhar');
+let vitoria = 0, derrota = 0, empate = 0;
+let resultado = document.getElementById('resultado');
+let maquina = document.getElementById('maquina');
+let jogador = document.getElementById('jogador');
+let playerSelection;
+let pontuacaoJogador = document.getElementById('pontuacao-jogador');
+let pontuacaoMaquina = document.getElementById('pontuacao-maquina');
+
+document.getElementById('pedra').addEventListener("click", function() {playerSelection = 'pedra'; game()});
+
+document.getElementById('papel').addEventListener("click", function() {playerSelection = 'papel'; game()});
+
+document.getElementById('tesoura').addEventListener("click",function() {playerSelection = 'tesoura'; game()});
+
+let recarregar = document.getElementById('recarregar');
+recarregar.addEventListener("click", function() {location.reload()});
+
+
+
+

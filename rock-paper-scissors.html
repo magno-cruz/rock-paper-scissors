@@ -1,18 +1,41 @@
 <!DOCTYPE html>
-<html lang="">
-  <head>
+<html lang="pt-BR">
+<head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pedra, Papel e Tesoura</title>
-    <script src='javascript.js'></script>
-  </head>
-  <body>
-    <header>Um simples jogo de padra papel e tesoura.</header>
-    <main>
-		<div>
-			<p>Escolha entre pedra, papel e tesoura no espaço abaixo.</p>
+    <link rel='stylesheet' href='style.css'>
+    <script src='javascript.js' defer></script>
+</head>
+<body>
+  		<h1>Um simples jogo de pedra, papel e tesoura.</h1>
+
+		<h2 id=escolha>Escolha entre pedra, papel e tesoura:</h2>
+
+		<div id="pergunta">
+
+			<button id="pedra" class="button"><img src='pedra.png' alt='Pedra' height='20px'>Pedra</button>
+			<button id="papel" class="button"><img src='papel.png' alt='Papel' height='20px'>Papel</button>
+			<button id="tesoura" class="button"><img src='tesoura.png' alt='Tesoura' height='20px'>Tesoura</button>
+
 		</div>
 
-    </main>
-    <footer></footer>
-  </body>
+
+        <div id='resposta'>
+			<div id='maquina'></div>
+			<div id='jogador'></div>
+			<div id='resultado'></div>
+
+			<div id='pontuacao'>
+				<div>Suas Vitórias:  <span id='pontuacao-jogador'>0</span></div>
+				<div>Vitórias da Máquina:  <span id='pontuacao-maquina'>0</span></div>
+			</div>
+        </div>
+		<div id='reiniciar'>
+			<h2 id='ganhar' class='verde'></h2>
+			<h2 class='verde'>Se você quiser jogar de novo, clique no botão abaixo.</h2>
+			<button id='recarregar'>Jogar de novo</button>
+		</div>
+
+</body>
 </html>
