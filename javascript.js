@@ -20,7 +20,7 @@ function botaoReiniciar (resposta = ' ') {
 	document.getElementById('escolha').style.display = 'none';
 	ganhar.innerHTML = resposta;
 }
-
+/*Jeito antigo
 function playRound (playerSelection, computerSelection) {
 	if (playerSelection == computerSelection) {
 		return 'Empate';
@@ -44,8 +44,16 @@ function playRound (playerSelection, computerSelection) {
 		else {return 'Você ganhou!'};
 	}
 
-}
+}*/
 
+function playRound(playerSelection, computerSelection) {
+	if (playerSelection === computerSelection)
+		return 'Empate';
+	const opcoes = {'pedra':'tesoura' , 'tesoura' : 'papel' , 'papel' : 'pedra'};
+	if (computerSelection === opcoes[playerSelection]) {
+		return 'Você ganhou!';
+	} else {return 'Você perdeu!'};
+}
 function game() {
 
 	const computerSelection = computerPlay();
